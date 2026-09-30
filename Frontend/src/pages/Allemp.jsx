@@ -1,8 +1,9 @@
 
 
 import React, { useEffect, useState } from 'react'
-import axios from 'axios'
 import { Link } from 'react-router-dom'
+import api from '../api'
+
 
 const getEmployees = (data) => {
   if (Array.isArray(data)) return data
@@ -29,7 +30,9 @@ const Allemp = () => {
   useEffect(() => {
     const fetchEmployees = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/allemp')
+       
+
+        const response = await api.get('/allemp')
         setEmployees(getEmployees(response.data))
       } catch (err) {
         setError(

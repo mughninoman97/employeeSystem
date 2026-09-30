@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import axios from "axios"
+import api from '../api'
 
 const inputClass =
   'mt-2 w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-emerald-600 focus:ring-4 focus:ring-emerald-600/10'
@@ -15,7 +16,8 @@ const Addemp = () => {
   const employee = Object.fromEntries(new FormData(form).entries())
 
   try {
-    const response = await axios.post('http://localhost:3000/post',employee)
+
+    const response = await api.post('/post', employee)
     navigate('/allemp')
     console.log('Server response:', response.data)
   console.log('Created employee:', response.data.employee)
