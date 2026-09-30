@@ -10,6 +10,12 @@ app.use(express.json())
 app.use(cors())
     const empData = []
 
+
+app.get('/', (req,res) =>{
+    res.send("the App is up and running")
+})
+
+
 app.post('/post', async (req,res)=>{
     const data = req.body
     console.log(req.body);
